@@ -1,4 +1,4 @@
-import { Component, h, Element, Prop, Host, Event, EventEmitter, State } from '@stencil/core';
+import { Component, h, Element, Prop, Host, State, Event, EventEmitter } from '@stencil/core';
 import { SIZES, THEMES } from '../../utils/types';
 import { getGlobalStyles } from '../../utils/utils';
 import { v4 as uuidv4 } from 'uuid';
@@ -24,11 +24,12 @@ export class Select {
   @Prop() block: boolean = false;
   @Prop({ reflect: true, mutable: true }) options: Array<Option> = [];
   @Prop({ reflect: true, mutable: true }) value: string;
-  @Event() change: EventEmitter<Option>;
+  @Event({ eventName: 'changed', bubbles: true, cancelable: true, composed: true }) onChange: EventEmitter<any>;
 
   handleOnChange(e) {
     this.value = e.target.value;
-    this.change.emit(this.options.find((option: Option) => option.value === e.target.value));
+    this.onChange.emit(e);
+    // this.el.dispatchEvent(new window.Event('changed'));
   }
 
   componentWillLoad() {
@@ -46,7 +47,7 @@ export class Select {
           <select
             id={this.ID}
             name={this.ID}
-            class={{ 'form-select': true, 'form-select-sm': this.size === 'small', 'form-select-lg': this.size === 'large' }}
+            class={{ 'form-control': true, 'form-control-sm': this.size === 'small', 'form-control-lg': this.size === 'large' }}
             aria-label=".form-select example"
             onChange={this.handleOnChange.bind(this)}
           >

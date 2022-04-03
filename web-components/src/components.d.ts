@@ -60,7 +60,7 @@ declare namespace LocalJSX {
         "block"?: boolean;
         "disabled"?: boolean;
         "label"?: string;
-        "onChange"?: (event: CustomEvent<Option>) => void;
+        "onChanged"?: (event: CustomEvent<any>) => void;
         "options"?: Array<Option>;
         "size"?: SIZES;
         "theme"?: THEMES;
