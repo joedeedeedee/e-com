@@ -27,6 +27,7 @@ export class Select {
   @Event() change: EventEmitter<Option>;
 
   handleOnChange(e) {
+    this.value = e.target.value;
     this.change.emit(this.options.find((option: Option) => option.value === e.target.value));
   }
 
