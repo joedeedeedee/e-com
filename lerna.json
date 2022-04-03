@@ -1,0 +1,8 @@
+{
+  "packages": [
+    "react-components",
+    "web-components"
+  ],
+  "version": "0.0.0",
+  "useWorkspaces": true
+}

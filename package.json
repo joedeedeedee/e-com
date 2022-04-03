@@ -1,0 +1,24 @@
+{
+  "name": "profabric-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "lerna bootstrap",
+    "start:dev": "npm run start --prefix web-components",
+    "build": "npm run build:web && npm run build:react",
+    "build:web": "npm run build --prefix web-components",
+    "build:react": "npm run build --prefix react-components"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "7.0.4",
+    "lerna": "4.0.0",
+    "prettier": "2.6.1"
+  },
+  "workspaces": [
+    "react-components",
+    "web-components"
+  ]
+}
