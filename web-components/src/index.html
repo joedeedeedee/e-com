@@ -8,6 +8,13 @@
 
     <script type="module" src="/build/pf-components.esm.js"></script>
     <script nomodule src="/build/pf-components.js"></script>
+    <script>
+      window.PF = {
+        config: {
+          mode: 'bs5',
+        },
+      };
+    </script>
   </head>
   <body>
     <div class="container-fluid">
@@ -130,6 +137,8 @@
     </script>
     <script>
       const selections = document.querySelectorAll('pf-select');
+
+      console.log(selections[0].mode);
       selections.forEach(select => {
         select.options = [
           { value: '1', label: 'One' },

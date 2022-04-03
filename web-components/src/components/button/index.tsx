@@ -1,18 +1,22 @@
 import { Component, h, Element, Prop, Host, Listen } from '@stencil/core';
-import { SIZES, THEMES } from '../../utils/types';
+import { MODES, SIZES, THEMES } from '../../utils/types';
 import { getGlobalStyles } from '../../utils/utils';
 
 export type BUTTON_TYPES = 'submit' | 'button' | 'reset';
 
 @Component({
   tag: 'pf-button',
-  styleUrl: 'index.scss',
+  styleUrls: {
+    bs4: 'index.scss',
+    bs5: 'index.scss',
+  },
   shadow: true,
 })
 export class Button {
   @Element() el: HTMLElement;
   @Prop() theme: THEMES = 'primary';
   @Prop() size: SIZES = 'default';
+  @Prop({ reflect: true }) mode: MODES;
   @Prop({ reflect: true, mutable: true }) type: BUTTON_TYPES = 'button';
   @Prop() class: string = '';
   @Prop() disabled: boolean = false;
@@ -44,7 +48,7 @@ export class Button {
         <div class="d-flex justify-content-center align-items-center">
           <span>&nbsp;</span>
           <div class="spinner-border spinner-border-sm" role="status">
-            {/* <span class="visually-hidden">Loading...</span> */}
+            <span class={{ 'visually-hidden': this.mode === 'bs5', 'sr-only': this.mode === 'bs4' }}>Loading...</span>
           </div>
         </div>
       );

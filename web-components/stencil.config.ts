@@ -6,6 +6,7 @@ export const config: Config = {
   namespace: 'pf-components',
   plugins: [sass()],
   globalStyle: 'src/global/main.scss',
+  globalScript: 'src/global/main.ts',
   outputTargets: [
     reactOutputTarget({
       // @ts-ignore

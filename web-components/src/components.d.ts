@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { SIZES, THEMES } from "./utils/types";
+import { MODES, SIZES, THEMES } from "./utils/types";
 import { BUTTON_TYPES } from "./components/button/index";
 import { Option } from "./components/select/index";
 export namespace Components {
@@ -14,6 +14,7 @@ export namespace Components {
         "class": string;
         "disabled": boolean;
         "loading": boolean;
+        "mode": MODES;
         "size": SIZES;
         "theme": THEMES;
         "type": BUTTON_TYPES;
@@ -22,6 +23,7 @@ export namespace Components {
         "block": boolean;
         "disabled": boolean;
         "label": string;
+        "mode": MODES;
         "options": Array<Option>;
         "size": SIZES;
         "theme": THEMES;
@@ -52,6 +54,7 @@ declare namespace LocalJSX {
         "class"?: string;
         "disabled"?: boolean;
         "loading"?: boolean;
+        "mode"?: MODES;
         "size"?: SIZES;
         "theme"?: THEMES;
         "type"?: BUTTON_TYPES;
@@ -60,6 +63,7 @@ declare namespace LocalJSX {
         "block"?: boolean;
         "disabled"?: boolean;
         "label"?: string;
+        "mode"?: MODES;
         "onChanged"?: (event: CustomEvent<any>) => void;
         "options"?: Array<Option>;
         "size"?: SIZES;
