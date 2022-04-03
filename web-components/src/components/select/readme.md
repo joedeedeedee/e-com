@@ -16,6 +16,7 @@
 | `options`  | --         |             | `Option[]`                                                                                                | `[]`        |
 | `size`     | `size`     |             | `"default" \| "large" \| "small"`                                                                         | `'default'` |
 | `theme`    | `theme`    |             | `"danger" \| "dark" \| "info" \| "light" \| "link" \| "primary" \| "secondary" \| "success" \| "warning"` | `'primary'` |
+| `type`     | `type`     |             | `string`                                                                                                  | `undefined` |
 | `value`    | `value`    |             | `string`                                                                                                  | `undefined` |
 
 

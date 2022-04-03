@@ -27,6 +27,7 @@ export namespace Components {
         "options": Array<Option>;
         "size": SIZES;
         "theme": THEMES;
+        "type": string;
         "value": string;
     }
 }
@@ -68,6 +69,7 @@ declare namespace LocalJSX {
         "options"?: Array<Option>;
         "size"?: SIZES;
         "theme"?: THEMES;
+        "type"?: string;
         "value"?: string;
     }
     interface IntrinsicElements {

@@ -23,6 +23,7 @@ export class Select {
   @Prop() theme: THEMES = 'primary';
   @Prop() size: SIZES = 'default';
   @Prop() label: string = null;
+  @Prop() type: string;
   @Prop({ reflect: true }) mode: MODES;
   @Prop() disabled: boolean = false;
   @Prop() block: boolean = false;
@@ -57,7 +58,7 @@ export class Select {
 
   render() {
     return (
-      <Host style={{ width: this.block ? '100%' : 'inherit' }}>
+      <Host style={{ width: this.block ? '100%' : 'inherit' }} disabled={this.disabled}>
         <div class={{ 'form-group': true }}>
           <label
             htmlFor={this.ID}
@@ -78,9 +79,11 @@ export class Select {
               'form-control': this.mode === 'bs4',
               'form-control-sm': this.mode === 'bs4' && this.size === 'small',
               'form-control-lg': this.mode === 'bs4' && this.size === 'large',
+              'custom-select': this.type === 'custom',
             }}
             aria-label=".form-select example"
             onChange={this.handleOnChange.bind(this)}
+            disabled={this.disabled}
           >
             {this.options.map((option: Option) => {
               return (

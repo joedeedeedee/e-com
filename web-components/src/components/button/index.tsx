@@ -22,8 +22,13 @@ export class Button {
   @Prop() disabled: boolean = false;
   @Prop() loading: boolean = false;
   @Prop() block: boolean = false;
-  @Listen('click')
+  @Listen('click', { capture: true })
   onClick(event: Event) {
+    if (this.disabled || this.loading) {
+      event.preventDefault();
+      event.stopPropagation();
+      return;
+    }
     const form = this.el.closest('form');
     if (form) {
       event.preventDefault();

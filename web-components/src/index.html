@@ -105,10 +105,10 @@
           <pf-button theme="light" block size="large">Light</pf-button>
         </div>
         <div class="col">
-          <pf-button theme="dark" block size="large">Dark</pf-button>
+          <pf-button theme="dark" block size="large" disabled>Dark</pf-button>
         </div>
         <div class="col">
-          <pf-button theme="link" block size="large">Link</pf-button>
+          <pf-button theme="link" block size="large" disabled>Link</pf-button>
         </div>
       </div>
       <div class="row mt-3">
@@ -120,7 +120,7 @@
           <pf-select value="3" label="Medium"></pf-select>
         </div>
         <div class="col">
-          <pf-select value="1" size="large" label="Large"></pf-select>
+          <pf-select value="1" size="large" label="Large" disabled></pf-select>
         </div>
       </div>
     </div>
@@ -137,8 +137,6 @@
     </script>
     <script>
       const selections = document.querySelectorAll('pf-select');
-
-      console.log(selections[0].mode);
       selections.forEach(select => {
         select.options = [
           { value: '1', label: 'One' },
